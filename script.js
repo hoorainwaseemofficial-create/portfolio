@@ -24,7 +24,6 @@ navLinks.querySelectorAll('a').forEach(link => {
 // ============================================
 // Scroll-spy: highlight active nav link
 // ============================================
-const sections = document.querySelectorAll('main section[id], header#top');
 const navItems = document.querySelectorAll('[data-nav]');
 
 const spyObserver = new IntersectionObserver((entries) => {
@@ -53,6 +52,55 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ============================================
+// Render Projects + Resume from projects-data.js
+// (single source of truth — see that file to add a project)
+// ============================================
+(function renderProjectsAndResume() {
+  if (typeof PROJECTS === 'undefined') return;
+
+  const grid = document.getElementById('projectGrid');
+  const resumeList = document.getElementById('resumeProjectList');
+  const thumbColors = ['ph-1', 'ph-2', 'ph-3', 'ph-4', 'ph-5'];
+
+  const cardsHtml = PROJECTS.map((p, i) => {
+    const thumb = p.image
+      ? `<div class="project-thumb"><img src="${p.image}" alt="${p.title} preview"></div>`
+      : `<div class="project-thumb ${thumbColors[i % thumbColors.length]}" aria-hidden="true"></div>`;
+
+    const liveLink = p.live
+      ? `<a href="${p.live}" target="_blank" rel="noopener" class="link-arrow">Live demo →</a>`
+      : '';
+    const sourceLink = p.source
+      ? `<a href="${p.source}" target="_blank" rel="noopener" class="link-arrow">Source →</a>`
+      : '';
+
+    const tags = p.tech.map(t => `<li>${t}</li>`).join('');
+
+    return `
+      <article class="project-card reveal">
+        ${thumb}
+        <div class="project-body">
+          <h3>${p.title}</h3>
+          <p>${p.description}</p>
+          <ul class="tag-list">${tags}</ul>
+          <div class="project-links">${liveLink}${sourceLink}</div>
+        </div>
+      </article>`;
+  }).join('');
+
+  if (grid) grid.innerHTML = cardsHtml;
+
+  if (resumeList) {
+    resumeList.innerHTML = PROJECTS.map(p =>
+      `<li>${p.title} — ${p.tech.join(', ')}</li>`
+    ).join('');
+  }
+
+  // newly injected .reveal cards need to be observed for the scroll animation
+  document.querySelectorAll('#projectGrid .reveal').forEach(el => revealObserver.observe(el));
+})();
 
 // ============================================
 // Subtle ambient tilt on the laptop mockup (mouse-follow), respects reduced motion

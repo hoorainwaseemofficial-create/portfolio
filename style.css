@@ -392,7 +392,7 @@ h1,h2,h3{
    ============================================ */
 .project-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns:repeat(3,1fr);
   gap:28px;
 }
 .project-card{
@@ -404,22 +404,12 @@ h1,h2,h3{
 }
 .project-card:hover{ transform:translateY(-6px); border-color:rgba(62,231,200,0.35); }
 .project-thumb{
-  height:190px;
+  height:150px;
   position:relative;
-  overflow:hidden;
-}
-.project-thumb img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:top;
-  display:block;
 }
 .ph-1{ background:linear-gradient(135deg,#3A2E8F,#171F3F); }
 .ph-2{ background:linear-gradient(135deg,#124E4A,#171F3F); }
 .ph-3{ background:linear-gradient(135deg,#3A1F6B,#171F3F); }
-.ph-4{ background:linear-gradient(135deg,#1F4A6B,#171F3F); }
-.ph-5{ background:linear-gradient(135deg,#5C1F4A,#171F3F); }
 .project-thumb::after{
   content:'';
   position:absolute; inset:0;
@@ -498,11 +488,73 @@ h1,h2,h3{
 .skill-mark.py{ background:rgba(70,150,220,0.16); color:#4696DC; }
 
 /* ============================================
+   RESUME
+   ============================================ */
+.resume-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+.resume-head .section-title{ margin-bottom:10px; }
+.resume-download{
+  display:inline-flex; align-items:center; gap:9px;
+  white-space:nowrap;
+}
+
+.resume-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-bottom:20px;
+}
+.resume-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-m);
+  padding:26px;
+}
+.resume-card h3{
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+  color:var(--teal);
+  margin-bottom:16px;
+}
+.resume-item-title{ font-size:15px; font-weight:600; color:var(--text); margin:0 0 4px; }
+.resume-item-sub{ font-size:13px; color:var(--text-muted); margin:0; }
+
+.resume-skill-list, .resume-project-list{
+  display:flex; flex-direction:column; gap:10px;
+  font-size:13.5px; color:var(--text-muted);
+  list-style:none; margin:0; padding:0;
+}
+.resume-skill-list li, .resume-project-list li{
+  padding-left:16px; position:relative;
+}
+.resume-skill-list li::before, .resume-project-list li::before{
+  content:''; position:absolute; left:0; top:7px;
+  width:6px; height:6px; border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--teal));
+}
+
+.resume-note{
+  font-size:12.5px; color:var(--text-faint); margin:0;
+}
+.resume-note code{
+  font-family:var(--font-mono);
+  background:rgba(255,255,255,0.06);
+  padding:2px 6px; border-radius:4px;
+}
+
+/* ============================================
    CONTACT
    ============================================ */
 .contact-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
   gap:24px;
 }
 .contact-card{
@@ -578,6 +630,7 @@ a:focus-visible, button:focus-visible{
   .feature-grid,.project-grid{ grid-template-columns:1fr 1fr; }
   .skills-grid{ grid-template-columns:repeat(3,1fr); }
   .contact-grid{ grid-template-columns:1fr; }
+  .resume-grid{ grid-template-columns:1fr; }
 }
 
 @media (max-width:720px){
