@@ -404,12 +404,22 @@ h1,h2,h3{
 }
 .project-card:hover{ transform:translateY(-6px); border-color:rgba(62,231,200,0.35); }
 .project-thumb{
-  height:150px;
+  height:170px;
   position:relative;
+  overflow:hidden;
+}
+.project-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top;
+  display:block;
 }
 .ph-1{ background:linear-gradient(135deg,#3A2E8F,#171F3F); }
 .ph-2{ background:linear-gradient(135deg,#124E4A,#171F3F); }
 .ph-3{ background:linear-gradient(135deg,#3A1F6B,#171F3F); }
+.ph-4{ background:linear-gradient(135deg,#1F4A6B,#171F3F); }
+.ph-5{ background:linear-gradient(135deg,#5C1F4A,#171F3F); }
 .project-thumb::after{
   content:'';
   position:absolute; inset:0;
