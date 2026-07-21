@@ -58,6 +58,17 @@ const PROJECTS = [
     source: "https://github.com/hoorainwaseemofficial-create/Disease_Prediction_Using_Symptoms"
   },
 
+  {
+    title: "BioGenie — AI Research Assistant for Biology",
+    description: "A full RAG-based research assistant that searches PubMed, UniProt, and PDB in real time, stores results as vector memory in Pinecone, and answers questions using Llama 3.3 (via Groq) with source citations.",
+    tech: ["Python", "Streamlit", "Pinecone", "Groq", "RAG"],
+    image: null,
+    live: "https://biogenie-hoorain.streamlit.app",
+    source: "https://github.com/hoorainwaseemofficial-create/biogenie"
+  },
+
+
+
   // 👇 Add your next project here, then just save + push.
   // {
   //   title: "Project Name",
