@@ -62,7 +62,7 @@ const PROJECTS = [
     title: "BioGenie — AI Research Assistant for Biology",
     description: "A full RAG-based research assistant that searches PubMed, UniProt, and PDB in real time, stores results as vector memory in Pinecone, and answers questions using Llama 3.3 (via Groq) with source citations.",
     tech: ["Python", "Streamlit", "Pinecone", "Groq", "RAG"],
-    image: biogenie.png,
+    image: "images/biogenie.png",
     live: "https://biogenie-hoorain.streamlit.app",
     source: "https://github.com/hoorainwaseemofficial-create/biogenie"
   },
