@@ -66,7 +66,14 @@ const PROJECTS = [
     live: "https://biogenie-hoorain.streamlit.app",
     source: "https://github.com/hoorainwaseemofficial-create/biogenie"
   },
-
+{
+    title: "AI Resume Builder — Smart Resume Creator with AI Writing Assistant",
+    description: "A full-featured resume builder that parses existing PDF resumes with AI, auto-fills structured sections, and generates ATS-friendly summaries and bullet points using Llama 3.3 (via Groq). Includes theme customization, drag-and-drop section ordering, and PDF/DOCX/Markdown export.",
+    tech: ["Python", "Streamlit", "Groq", "ReportLab", "python-docx"],
+    image: "images/ai-resume-builder.png",
+    live: "https://ai-resume-builder-hoorainwaseem.streamlit.app",
+    source: "https://github.com/hoorainwaseemofficial-create/ai-resume-builder"
+  },
 
 
   // 👇 Add your next project here, then just save + push.
